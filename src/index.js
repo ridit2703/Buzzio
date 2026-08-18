@@ -1,11 +1,20 @@
-import dotenv from  "dotenv";
+//require("dotenv").config({path:"./env"})
+
+import dotenv from "dotenv";
+import dns from "dns";
+
+dotenv.config({ path: "./.env" });
+
+dns.setServers(["8.8.8.8", "8.8.4.4"]);
+dns.setDefaultResultOrder("ipv4first");
+//import dotenv from  "dotenv";
 import connectDB from "./db/index.js"
 
 
 dotenv.config({
-    path:"./env"
+    path:"./.env"
 })
-
+console.log(process.env.MONGODB_URI);
 connectDB()
 
 
